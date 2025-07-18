@@ -1,0 +1,20 @@
+{% extends "hms/base.html" %}
+
+{% block title %}Unknown Role{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="alert alert-warning mt-4">
+      <h4 class="alert-heading">⚠️ Unknown Role</h4>
+      <p>
+        Your account does not have a valid role assigned.
+      </p>
+      <p>
+        Please contact the administrator for assistance or try logging in with the correct role.
+      </p>
+    </div>
+    <a href="{% url 'select_role' %}" class="btn btn-primary mt-3">⬅ Back to Role Selection</a>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "hms/base.html" %}
+
+{% block title %}Select Role{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6 col-lg-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="text-center mb-4">🔷 Select Your Role</h2>
+
+        <div class="list-group">
+          <a href="{% url 'login' %}" class="list-group-item list-group-item-action text-center py-3">
+            👨‍⚕️ <strong>Doctor Login</strong>
+          </a>
+          <a href="{% url 'patient_login' %}" class="list-group-item list-group-item-action text-center py-3">
+            🛌 <strong>Patient Login</strong>
+          </a>
+        </div>
+
+        <p class="mt-4 text-center text-muted small">
+          Please select your role to access the Hospital Management System.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

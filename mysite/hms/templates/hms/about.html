@@ -1,0 +1,42 @@
+{% extends "hms/base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h2 class="mb-3">About Our Hospital Management System</h2>
+    <p>
+      Welcome to our Hospital Management System!
+      We strive to provide excellent healthcare services with the help of modern technology, keeping your records secure and accessible.
+    </p>
+
+    <hr class="my-4">
+
+    <h4>Contact Us</h4>
+    <p><strong>Address:</strong> 42 Wellness Road, Care City, Healthstate - 123456</p>
+    <p><strong>Phone:</strong> +91-98765-43210</p>
+    <p><strong>Email:</strong> <a href="mailto:hello@carehospital.com">hello@carehospital.com</a></p>
+
+    <hr class="my-4">
+
+    <h4>We Value Your Feedback</h4>
+    <p>Please let us know your experience or suggestions below:</p>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="alert alert-success">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post" class="mt-3">
+      {% csrf_token %}
+      <div class="mb-3">
+        {{ form.message.label_tag }}
+        {{ form.message }}
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Feedback</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

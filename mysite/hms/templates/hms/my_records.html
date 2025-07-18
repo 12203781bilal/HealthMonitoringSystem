@@ -1,0 +1,33 @@
+{% extends "hms/base.html" %}
+
+{% block title %}My Records{% endblock %}
+
+{% block content %}
+<h2>My Medical Records</h2>
+
+<div class="card mb-3">
+    <div class="card-header">
+        <strong>{{ patient.name }}</strong> (Age: {{ patient.age }})
+        — Room: {{ patient.room_number }}, Floor: {{ patient.floor_number }}, Bed: {{ patient.bed_number }}
+    </div>
+
+    <div class="card-body">
+        {% if vitals %}
+            <ul class="list-group">
+                {% for v in vitals %}
+                    <li class="list-group-item">
+                        <strong>{{ v.date_recorded|date:"Y-m-d H:i" }}</strong> —
+                        BP: {{ v.blood_pressure }},
+                        HR: {{ v.heart_rate }},
+                        Temp: {{ v.temperature }}°C,
+                        Sugar: {{ v.sugar_level }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No vitals recorded yet.</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
