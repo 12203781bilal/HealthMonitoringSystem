@@ -1,0 +1,21 @@
+{% extends "hms/base.html" %}
+
+{% block title %}Feedbacks{% endblock %}
+
+{% block content %}
+<h2>Patient Feedbacks</h2>
+
+{% if feedbacks %}
+<ul class="list-group">
+  {% for f in feedbacks %}
+    <li class="list-group-item">
+      <strong>{{ f.created_at|date:"Y-m-d H:i" }}</strong><br>
+      {{ f.message|linebreaks }}
+    </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="text-muted">No feedbacks yet.</p>
+{% endif %}
+
+{% endblock %}
